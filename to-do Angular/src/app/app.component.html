@@ -7,8 +7,9 @@
     <button mat-raised-button class="addTask" (click)="addTask()">Add Task</button>
   </ng-container>
     <span class="example-spacer"></span>
-    <ng-container *ngIf="credentials">
-      <span *ngIf="dataLoaded" class="username"><img [src]="avatar" alt="Avatar"> User: {{username}} </span>
+    <ng-container *ngIf="credentials && dataLoaded">
+      <button mat-raised-button (click)="logOut()">SignOut</button>
+      <span class="username"><img [src]="avatar" alt="Avatar"> User: {{username}} </span>
     </ng-container>
     <button mat-raised-button (click)="openLogin()">
       <ng-container *ngIf="dataLoaded; else loginBlock">Change user</ng-container>

@@ -33,6 +33,11 @@ export class AppComponent {
     })
   }
 
+  logOut(){
+    this.credentials = null;
+    this.dataLoaded = false;
+  }
+
 
   openLogin() {
     const dialogRef = this.dialog.open(LoginComponent,
@@ -48,10 +53,7 @@ export class AppComponent {
       this.getTodoList()
     })
   }
-  // findUserName(userName: string): any {
-  //   const user = this.users.find(user => user.username === userName)
-  //   return user?.name
-  // }
+
   findUserdetails(userName: string): any{
     const user = this.users.find(user => user.username === userName)
     return [user?.name, user?.avatar]
