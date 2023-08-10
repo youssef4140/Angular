@@ -1,0 +1,24 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Task Management Application</span>
+    <span class="example-spacer"></span>
+    <ng-container *ngIf="dataLoaded">
+    <button mat-raised-button class="addTask" (click)="addTask()">Add Task</button>
+  </ng-container>
+    <span class="example-spacer"></span>
+    <ng-container *ngIf="credentials">
+      <span *ngIf="dataLoaded" class="username">User: {{username}}</span>
+    </ng-container>
+    <button mat-raised-button (click)="openLogin()">
+      <ng-container *ngIf="dataLoaded; else loginBlock">Change user</ng-container>
+      <ng-template #loginBlock>Login</ng-template>
+    </button>  
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<ng-container *ngIf="dataLoaded">
+<app-task-table (idStatusEmitter)="changeStatus($event)" (idEditEmitter)="edit($event)" (idDeleteEmitter)="delete($event)" [todoList]="todoList"></app-task-table>
+</ng-container>

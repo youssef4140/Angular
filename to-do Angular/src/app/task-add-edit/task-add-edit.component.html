@@ -1,0 +1,10 @@
+<div>
+    <form [formGroup]="newtask" (ngSubmit)="addTask()">
+    <mat-form-field class="mat-form-field" appearance="outline">
+        <mat-label>New Task</mat-label>
+        <input matInput type="text" formControlName="task" placeholder="Insert new task">
+      </mat-form-field>
+      <button mat-stroked-button color="primary" type="submit">Submit</button>
+    </form>
+    </div>
+    

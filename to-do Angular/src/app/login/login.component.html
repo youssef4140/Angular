@@ -1,0 +1,20 @@
+<div>
+<form [formGroup]="credentials" (ngSubmit)="onLogin()">
+<mat-form-field class="mat-form-field" appearance="outline">
+    <mat-label>User name</mat-label>
+    <mat-select formControlName="UserName">
+      <ng-container *ngFor="let user of data.users">
+        <mat-option value="{{user.username}}">{{user.name}}<img [src]="user.avatar" alt="Avatar">
+        </mat-option>
+      </ng-container>
+      <!-- <mat-option value="felon">felon</mat-option>
+      <mat-option value="robon">robon</mat-option> -->
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="Password" placeholder="Placeholder">
+  </mat-form-field>
+  <button mat-stroked-button color="primary" type="submit">Login</button>
+</form>
+</div>
