@@ -27,9 +27,9 @@
 ### User Account
 
 - User is able to view his name and avatar in the app header.
-- User should be able to logout.
+- User is able to logout.
 
 ---
 
-*Good luck!👍*
-# AngularToDo
+
+
