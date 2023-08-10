@@ -15,6 +15,7 @@ import { users } from './_models/todo'
 })
 export class AppComponent {
   users!: users[];
+  avatar:string = '';
   credentials: any;
   username!: string;
   dataLoaded: boolean = false;
@@ -32,21 +33,29 @@ export class AppComponent {
     })
   }
 
+
   openLogin() {
     const dialogRef = this.dialog.open(LoginComponent,
       { data: { users: this.users } });
     dialogRef.afterClosed().subscribe(data => {
       console.log(data);
       this.credentials = btoa([data.UserName, data.Password].join(':'));
-      this.username = this.findUserName(data.UserName);
+      // this.username = this.findUserName(data.UserName);
+      // this.avatar = this.findAvatar(data.UserName)
+      [this.username, this.avatar] = this.findUserdetails(data.UserName)
       console.log(this.username);
       console.log(btoa(this.credentials));
       this.getTodoList()
     })
   }
-  findUserName(userName: string): any {
+  // findUserName(userName: string): any {
+  //   const user = this.users.find(user => user.username === userName)
+  //   return user?.name
+  // }
+  findUserdetails(userName: string): any{
     const user = this.users.find(user => user.username === userName)
-    return user?.name
+    return [user?.name, user?.avatar]
+    
   }
 
   getTodoList(): void {

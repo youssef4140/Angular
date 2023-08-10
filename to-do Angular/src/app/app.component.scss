@@ -3,11 +3,20 @@
   }
 
   .username{
-    margin-right:20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .addTask{
     padding-right:100px;
     padding-left: 100px;
     margin-right:10%;
+  }
+
+  img{
+    width:auto;
+    height:60px;
+    display:inline-block
   }
